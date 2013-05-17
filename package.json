@@ -5,10 +5,10 @@
   "author": "8th713",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "homepage": "https://sites.google.com/site/8th713lab/Home/chrome/linksearcher",
+  "homepage": "https://sites.google.com/site/8th713lab/Home/chrome/link-extraction",
   "repository": {
     "type": "git",
-    "url": "https://github.com/8th713/linksearcher.git"
+    "url": "https://github.com/8th713/LinkExtraction.git"
   },
   "main": "Gruntfile.js",
   "scripts": {
