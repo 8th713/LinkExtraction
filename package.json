@@ -1,0 +1,26 @@
+{
+  "name": "LinkExtraction",
+  "version": "1.0.0",
+  "description": "Extract to URLs of current tab or selection.",
+  "author": "8th713",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "homepage": "https://sites.google.com/site/8th713lab/Home/chrome/linksearcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/8th713/linksearcher.git"
+  },
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jade": "~0.6.0",
+    "grunt-contrib-less": "~0.5.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-regarde": "~0.1.1"
+  }
+}

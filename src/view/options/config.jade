@@ -1,0 +1,106 @@
+h1 Config
+h2 表示
+dl
+  dt ウィンドウの種類
+  dd.radio
+    label
+      input(
+        type="radio",
+        ng-model="config.type",
+        value="popup")
+      span Popup
+    label
+      input(
+        type="radio",
+        ng-model="config.type",
+        value="panel")
+      span Panel
+dl
+  dt 文字の大きさ
+  dd.radio
+    label
+      input(
+        type="radio",
+        name="font",
+        value="16px",
+        ng-model="config.fontSize")
+      span 16px
+    label
+      input(
+        type="radio",
+        name="font",
+        value="14px",
+        ng-model="config.fontSize")
+      span 14px
+    label
+      input(
+        type="radio",
+        name="font",
+        value="12px",
+        ng-model="config.fontSize")
+      span 12px
+
+h2 検索
+dl
+  dt インクリメントサーチの検索条件の初期値
+  dd.radio
+    label
+      input(
+        type="radio",
+        ng-model="config.searchType",
+        value="OR")
+      span OR 検索
+    label
+      input(
+        type="radio",
+        ng-model="config.searchType",
+        value="AND")
+      span AND 検索
+dl
+  dt インクリメントサーチのオートコンプリート候補
+  dd.form(my-form="patterns")
+    div.items
+      button.btn(
+        ng-repeat="item in config.patterns",
+        ng-click="remove(item)") {{ item }}
+    form.add(ng-submit="add()")
+      input(type="text", ng-model="inputStr", required)
+      input(type="submit", value="Add")
+    p.message(
+      ng-show="message",
+      ng-click="hide()") {{ message }}
+dl
+  dt 初期状態で非表示にしておくタグ
+  dd.form(my-form="inactives")
+    div.items
+      button.btn(
+        ng-repeat="item in config.inactives",
+        ng-click="remove(item)") {{ item }}
+    form.add(ng-submit="add()")
+      input(type="text", ng-model="inputStr", required)
+      input(type="submit", value="Add")
+    p.message(
+      ng-show="message",
+      ng-click="hide()") {{ message }}
+
+h2 動作
+dl
+  dt 選択中のアイテムを開く時の動作
+  dd.radio
+    label
+      input(
+        type="checkbox",
+        ng-model="config.createNewWindow")
+      span 新しいウィンドウを作る
+dl
+  dt タブを開く間隔
+  dd.range
+    input(
+      type="range",
+      min="300",
+      max="5000",
+      step="50",
+      ng-model="config.delayTime")
+    span.helper {{ config.delayTime }}
+
+//- pre {{ config | json }}

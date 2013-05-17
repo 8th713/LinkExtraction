@@ -1,0 +1,13 @@
+li.item(
+  ng-repeat="item in items | test:matchs",
+  ng-class="{checked: item.checked}")
+  input.checkbox(
+    type="checkbox",
+    ng-model="item.checked")
+  div.source(title="{{item.source}}") &#xe004;
+  div.url
+    a(
+      ng-href="{{ item.url }}",
+      target="_blank",
+      title="{{ item.url }}") {{ item.url }}
+  div.tag(ng-class="item.tag") {{ item.tag }}

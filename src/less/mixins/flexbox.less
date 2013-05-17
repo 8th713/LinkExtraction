@@ -1,0 +1,69 @@
+// display
+.flexbox () {
+  display: -webkit-flex;
+  display:         flex;
+}
+.flexbox (@val) {
+  display: -webkit-inline-flex;
+  display:         inline-flex;
+}
+
+// Ordering and Orientation
+.flex-direction (@val: column) {
+  -webkit-flex-direction: @val;
+          flex-direction: @val;
+}
+
+.flex-wrap (@val: wrap) {
+  -webkit-flex-wrap: @val;
+          flex-wrap: @val;
+}
+
+.flex-flow (@direction: column, @wrap: nowrap) {
+  -webkit-flex-flow: @arguments;
+          flex-flow: @arguments;
+}
+
+.order (@n: 1) {
+  -webkit-order: @n;
+          order: @n;
+}
+
+// Flexibility
+.flex () {
+  -webkit-flex: auto;
+          flex: auto;
+}
+.flex (@val) {
+  -webkit-flex: @val;
+          flex: @val;
+}
+.flex (@val1, @val2) {
+  -webkit-flex: @arguments;
+          flex: @arguments;
+}
+.flex (@grow, @shrink, @basis) {
+  -webkit-flex: @arguments;
+          flex: @arguments;
+}
+
+// Alignment
+.justify-content (@val: center) {
+  -webkit-justify-content: @val;
+          justify-content: @val;
+}
+
+.align-items (@val: center) {
+  -webkit-align-items: @val;
+          align-items: @val;
+}
+
+.align-self (@val: center) {
+  -webkit-align-self: @val;
+          align-self: @val;
+}
+
+.align-content (@val: center) {
+  -webkit-align-content: @val;
+          align-content: @val;
+}

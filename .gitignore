@@ -1,0 +1,10 @@
+Thumbs.db
+.DS_Store
+
+dist
+node_modules
+TODO.md
+*.sublime-project
+*.sublime-workspace
+*.bat
+*.pem

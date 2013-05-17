@@ -1,0 +1,23 @@
+div.btn-group
+  button.btn(
+    title="全部選択",
+    ng-click="check()") &#xe002;
+  button.btn(
+    title="全部解除",
+    ng-click="uncheck()") &#xe003;
+button.btn.danger(
+  title="選択を削除",
+  ng-click="remove()") &#xe005;
+div.total
+  span Checked: {{ checked.length }}
+  span Shown: {{ shown.length }}
+  span All: {{ items.length }}
+div.btn-group
+  button.btn(
+    title="ソート",
+    my-menu="showMenu1") &#xe006;
+  button.btn(
+    title="オプション",
+    my-menu="showMenu2") &#xe007;
+include sorter
+include submenu

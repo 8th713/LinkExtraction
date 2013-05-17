@@ -1,0 +1,41 @@
+!!! 5
+html(ng-app="app", ng-csp)
+  head
+    meta(charset='UTF-8')
+    title Option - LinkExtraction
+    link(rel="stylesheet", href="/normalize.css")
+    link(rel="stylesheet", href="style.css")
+  body
+    nav.sidebar(ng-init="nav = 'config'")
+      h1 Option
+      ul
+        li
+          input(
+            type="radio",
+            name="nav",
+            ng-model="nav",
+            value="config",
+            data-title="Config")
+        li
+          input(
+            type="radio",
+            name="nav",
+            ng-model="nav",
+            value="help",
+            data-title="Help")
+        li
+          input(
+            type="radio",
+            name="nav",
+            ng-model="nav",
+            value="about",
+            data-title="About")
+    div.main
+      section#config(ng-show="nav=='config'")
+        include options/config
+      section#help(ng-show="nav=='help'")
+        include options/help
+      section#about(ng-show="nav=='about'")
+        include options/about
+    script(src="/libs.js")
+    script(src="app.js")

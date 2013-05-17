@@ -1,0 +1,19 @@
+!!! 5
+html(ng-app="app", ng-csp="")
+  head
+    meta(charset='UTF-8')
+    title Result - LinkExtraction
+    link(rel="stylesheet", href="/normalize.css")
+    link(rel="stylesheet", href="style.css")
+  body(
+    ng-controller="MainCtrl",
+    ng-style="{'font-size': config.fontSize}",
+    ng-click="showMenu1 = false; showMenu2 = false; ")
+    header
+      include panel/header
+    ul.list
+      include panel/item
+    footer
+      include panel/footer
+    script(src="/libs.js")
+    script(src="app.js")

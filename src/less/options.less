@@ -1,0 +1,262 @@
+@import 'mixins/variables';
+@import 'mixins/flexbox';
+@import 'mixins/goodparts';
+
+@font-face {
+  font-family: 'Icon';
+  src: url('/fonts/icomoon.woff') format('woff');
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: @gray-60;
+
+  &:active {
+    background-color: @gray-50;
+  }
+}
+
+body {
+  .center-box;
+  .flexbox;
+  background-color: @gray-95;
+  color: @gray-30;
+  line-height: 1.55;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: @link-color;
+  text-shadow: -1px -1px @black-05;
+  text-decoration: none;
+
+  &:hover {
+    color: @link-color-hover;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: @danger-color;
+  }
+}
+
+h2,
+h3 {
+  .line;
+}
+
+figure {
+  padding: 1em 1em 0;
+  border: 1px solid @black-10;
+  text-align: center;
+}
+
+ul {
+  padding-left: 2em;
+}
+
+dl {
+  margin: 0 0 2em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 2em;
+}
+
+.sidebar {
+  .flex(0, 0, 150px);
+  border-right: 1px solid @black-05;
+  padding-left: 1em;
+
+  ul {
+    list-style: none;
+    margin: 0 0 0 -1em;
+    padding: 0;
+    border-top: 1px solid @black-10;
+  }
+
+  input {
+    -webkit-appearance: none;
+            appearance: none;
+    display: block;
+    width: 100%;
+    padding: 0 1em;
+    border-top: 1px solid @white-40;
+    border-bottom: 1px solid @black-10;
+
+    line-height: 2;
+    color: @link-color;
+    transition: background-color .25s;
+
+    &:after {
+      content: attr(data-title);
+    }
+
+    &:checked {
+      background-color: fade(@primary-color, 10%);
+      box-shadow: inset 10px 0 fade(@primary-color, 50%);
+    }
+
+    &:hover {
+      color: @link-color-hover;
+      text-shadow: 1px 1px @white-40;
+      background-color: fade(@primary-color, 20%);
+    }
+
+    &:active {
+      color: @danger-color;
+    }
+  }
+}
+
+.main {
+  .flex;
+  overflow: auto;
+
+  section {
+    margin: 0 2em 4em;
+
+    &:after,
+    &:before {
+      content: '';
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+
+  h1 {
+    .line;
+  }
+}
+
+.radio {
+  .flexbox;
+
+  label {
+    .flexbox;
+    .align-items;
+    margin-right: 1em;
+  }
+
+  input {
+    margin: 4px 4px 4px 0;
+  }
+}
+
+.range {
+  .flexbox;
+  .align-items;
+
+  input {
+    width: 500px;
+  }
+
+  .helper {
+    margin-left: 8px;
+    padding: 4px;
+    border-radius: 2px;
+    background-color: @black-05;
+    box-shadow: 0 0 0 1px @black-10;
+    line-height: 1;
+  }
+}
+
+.form {
+  input[type="text"] {
+    width: 25em;
+    padding: 4px 1em;
+    border: 1px solid @black-15;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  input[type="submit"] {
+    .btn-base;
+    .btn-color(@primary-color, @gray-95);
+    padding: 4px 1em;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.items {
+  .flexbox;
+  .flex-wrap;
+  width: 400px;
+}
+
+.btn {
+  .btn-base;
+  .btn-color(@info-color, @gray-95);
+  margin: 0 4px 4px 0;
+
+  &:before {
+    content: '\e005';
+    margin-right: 4px;
+    color: darken(@danger-color, 10%);
+    text-shadow: 0  1px @white-70,
+                 0 -1px @black-30;
+    font-size: 14px;
+    font-family: Icon;
+  }
+}
+
+.add {
+  .flexbox;
+}
+
+.message {
+  position: relative;
+  padding: 4px;
+  border: 1px solid @danger-color;
+  border-radius: 4px;
+
+  &:after {
+    content: '\d7';
+    position: absolute;
+    right: 4px;
+    font-size: 20px;
+    line-height: 1;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+}
+
+.icon {
+  .icon;
+  .btn-color(@primary-color, @gray-95);
+  margin: 0 4px;
+
+  &.success {
+    .btn-color(@success-color, @gray-95);
+  }
+
+  &.danger {
+    .btn-color(@danger-color, @gray-95);
+  }
+}
+
+.source {
+  margin-right: 4px;
+  line-height: 1;
+  font-family: Icon;
+  cursor: default;
+  -webkit-user-select: none;
+          user-select: none;
+}

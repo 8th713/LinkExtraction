@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name":         "<%= pkg.name %>",
+  "description":  "<%= pkg.description %>",
+  "version":      "<%= pkg.version %>",
+  "homepage_url": "https://sites.google.com/site/8th713lab/Home/chrome/linksearcher",
+  "update_url": "http://sites.google.com/site/8th713lab/Home/chrome/update.xml",
+  "icons": {
+    "128": "icons/128.png",
+    "48": "icons/48.png",
+    "16": "icons/16.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options/index.html",
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "contextMenus",
+    "clipboardWrite",
+    "storage"
+  ]
+}

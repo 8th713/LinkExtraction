@@ -1,0 +1,36 @@
+div.btn-group
+  button.btn(
+    title="コピー",
+    ng-click="copy()") &#xe000;
+  button.btn(title="開く",
+    ng-click="open($event)") &#xe001;
+div.matcher
+  form.texts(
+    ng-submit="add()")
+    input(
+      type="checkbox",
+      ng-model="config.searchType",
+      ng-true-value="AND",
+      ng-false-value="OR")
+    input(
+      type="search",
+      list="patterns",
+      placeholder=".jpg .png .gif",
+      required,
+      ng-model="matchs.texts",
+      ng-list="/\\s/")
+    datalist#patterns
+      option(
+        ng-repeat="tag in config.patterns"
+        value="{{ tag }}")
+  select.source(
+    ng-model="matchs.source",
+    ng-options="key for (key, val) in sources")
+    option(value) All
+  div.tags(my-group="tags")
+    input.tag(
+      type="checkbox",
+      ng-repeat="(key, val) in tags",
+      ng-model="matchs.tags[key]",
+      ng-class="key",
+      data-tag="{{ val }}")

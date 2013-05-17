@@ -1,0 +1,18 @@
+ul.menu(ng-show="showMenu1")
+  li.label Sort
+  li
+    input(type="radio", name="menu", value="",
+      ng-model="matchs.sort",
+      data-title="Index")
+  li
+    input(type="radio", name="menu", value="url",
+      ng-model="matchs.sort",
+      data-title="URL")
+  li
+    input(type="radio", name="menu", value="tag",
+      ng-model="matchs.sort",
+      data-title="Tag")
+  li
+    input(type="radio", name="menu", value="source",
+      ng-model="matchs.sort",
+      data-title="Source")
