@@ -1,4 +1,4 @@
-# LinkSearcher
+# LinkExtraction
 Extract to URLs of current tab or selection.
 
 ## Installation and Usage
