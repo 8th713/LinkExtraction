@@ -3,7 +3,7 @@
   "name":         "<%= pkg.name %>",
   "description":  "<%= pkg.description %>",
   "version":      "<%= pkg.version %>",
-  "homepage_url": "https://sites.google.com/site/8th713lab/Home/chrome/linksearcher",
+  "homepage_url": "https://sites.google.com/site/8th713lab/Home/chrome/link-extraction",
   "update_url": "http://sites.google.com/site/8th713lab/Home/chrome/update.xml",
   "icons": {
     "128": "icons/128.png",
