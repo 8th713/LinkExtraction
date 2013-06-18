@@ -1,3 +1,5 @@
+'use strict';
+
 chrome.contextMenus.onClicked.addListener(onClicked);
 chrome.runtime.onInstalled.addListener(onInstalled);
 
@@ -40,7 +42,8 @@ function onInstalled(details) {
     return;
   }
 
-  if (details.previousVersion.slice(0, 1) === '1') {
+  if (details.previousVersion.slice(0, 1) === '0') {
     chrome.storage.local.clear();
+    console.log('Delete old version config');
   }
 }

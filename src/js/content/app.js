@@ -1,5 +1,7 @@
 /* global type, target */
 (function () {
+  'use strict';
+
   var doc, url = location.href;
 
   window.NodeList.prototype.map = Array.prototype.map;
@@ -42,6 +44,7 @@
   }
 
   doc = (type === 'selection') ? getSelected() : document;
+
   return {
     items: extract(doc),
     url: url

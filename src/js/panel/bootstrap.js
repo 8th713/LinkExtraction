@@ -5,7 +5,7 @@ angular.module('app', [
   'app.directives',
   'app.controllers'
 ])
-.run(['$rootScope', 'config', function ($rootScope) {
+.run(['$rootScope', function (scope) {
   var data = decodeURIComponent(location.search);
 
   data = data.slice(6);
@@ -24,7 +24,7 @@ angular.module('app', [
     });
 
     function executed(list) {
-      $rootScope.$broadcast('load', list);
+      scope.$broadcast('load', list);
     }
   }
 }]);

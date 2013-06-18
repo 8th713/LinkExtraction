@@ -43,6 +43,13 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    pack: {
+      dev: {
+        src: 'dist',
+        dest: '<%= pkg.version %>',
+        pem: '<%= pkg.name %>'
+      }
+    },
     copy: {
       manifest: {
         options: {
@@ -69,19 +76,7 @@ module.exports = function(grunt) {
     jade: {
       dev: {
         options: {
-          pretty: true,
           data: {
-            debug: false,
-            name: '<%= pkg.name %>',
-            version: '<%= pkg.version %>'
-          }
-        },
-        files: jadeFiles
-      },
-      production: {
-        options: {
-          data: {
-            debug: false,
             name: '<%= pkg.name %>',
             version: '<%= pkg.version %>'
           }
@@ -91,9 +86,6 @@ module.exports = function(grunt) {
     },
     less: {
       dev: {
-        files: lessFiles
-      },
-      production: {
         options: {
           yuicompress: true
         },
@@ -116,17 +108,6 @@ module.exports = function(grunt) {
         options: {
           process: function(src, filepath) {
             return '// Source: ' + filepath + '\n' + src;
-          }
-        },
-        files: jsFiles
-      }
-    },
-    uglify: {
-      production: {
-        options: {
-          preserveComments: false,
-          beautify: {
-            max_line_len: 128
           }
         },
         files: jsFiles
@@ -156,23 +137,29 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-regarde');
 
-  grunt.registerTask('build', [
-    'copy',
-    'jade:dev',
-    'less:dev',
-    'concat'
-  ]);
+  grunt.registerMultiTask('pack', 'Creating a package', function () {
+    var done = this.async();
+    var dir = this.files[0].src[0];
 
-  grunt.registerTask('production', [
-    'copy',
-    'jade:production',
-    'less:production',
-    'concat:libs',
-    'uglify'
-  ]);
+    if (!grunt.file.isDir(dir)) {
+      return;
+    }
+
+    var options = {
+      cmd: 'packaging',
+      args: [
+        dir,
+        this.files[0].dest,
+        this.data.pem
+      ]
+    };
+
+    grunt.util.spawn(options, done);
+  });
+
+  grunt.registerTask('build', ['copy', 'jade', 'less', 'concat']);
 
   grunt.registerTask('default', ['build', 'regarde']);
 };
